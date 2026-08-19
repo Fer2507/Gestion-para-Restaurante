@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cliente</title>
+</head>
+<body>
+    <h1>Detalle del Cliente</h1>
+
+    <h3 th:text="'ID del Cliente: ' + ${cliente.idCliente}"></h3>
+    <h3 th:text="'Nombre del Cliente: ' + ${cliente.nombreCliente}"></h3>
+    <h3 th:text="'Correo del Cliente: ' + ${cliente.correoCliente}"></h3>
+    <h3 th:text="'Teléfono del Cliente: ' + ${cliente.telefonoCliente}"></h3>
+
+</body>
+</html>

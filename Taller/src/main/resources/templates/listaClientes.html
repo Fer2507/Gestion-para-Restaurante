@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clientes</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Lista de Clientes</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cli : ${clientelista}">
+                <td th:text="${cli.idCliente}"></td>
+                <td th:text="${cli.nombreCliente}"></td>
+                <td th:text="${cli.correoCliente}"></td>
+                <td th:text="${cli.telefonoCliente}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${#lists.isEmpty(clientelista)}" style="text-align:center; margin-top: 10px;">
+        <p>No hay clientes registrados.</p>
+    </div>
+</body>
+</html>
