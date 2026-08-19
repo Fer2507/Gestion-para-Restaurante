@@ -1,0 +1,658 @@
+body {
+  background: #f3e5f5; /* lavanda suave */
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* =============================
+   HEADER Y NAVBAR
+   ============================= */
+.header { background: linear-gradient(90deg, #7e57c2, #5c6bc0, #7986cb); color: #fff;  padding: 5px 20px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    position: sticky; top: 0;  z-index: 1000; }
+
+.navbar { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; overflow: hidden; max-height: 0; transition: max-height 0.4s ease;}
+
+.navbar.abierto { max-height: 700px; /* aumenta si tienes más secciones */}
+
+.navbar.cerrado { max-height: 0; }
+
+.menu-toggle { background: #5c6bc0; color: white; padding: 8px 12px; border: none; border-radius: 6px; cursor: pointer; margin-bottom: 10px; }
+
+.menu-toggle:hover { background: #3f51b5; }
+
+.menu-section { background: rgba(255, 255, 255, 0.15); padding: 5px 8px; border-radius: 12px; min-width: 120px; text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.20); backdrop-filter: blur(3px); transition: transform 0.3s ease; }
+
+.menu-section:hover { transform: scale(1.05); }
+
+.menu-section h2 { font-size: 1rem; font-weight: bold; color: #ffffff; margin-bottom: 10px; border-bottom: 2px solid #d1c4e9; padding-bottom: 5px; }
+
+.menu-section a { display: block; text-decoration: none; color: #ffffff; padding: 4px; margin: 2px 0; border-radius: 6px; font-size: 0.85rem; 
+     transition: background-color 0.25s, transform 0.2s; }
+
+.menu-section a:hover { background-color: rgba(255, 255, 255, 0.25); transform: scale(1.07); }
+
+.user-info-card {  width: 180px; }
+
+.logout { background: #c62828 !important; font-weight: bold; }
+
+.logout:hover { background: #e53935 !important; }
+
+.login-container { display: flex; height: 70vh; justify-content: center; align-items: center; background: linear-gradient(135deg, #f0f0f0, #d9e4f5); }
+
+.login-form { width: 80%; margin: 25px auto; background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15); text-align: left; }
+
+.login-form:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); }
+
+.login-form h2 {color: #5c6bc0; font-style: italic; margin-bottom: 25px; 
+    text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2);}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+.login-form input:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92,107,192,0.4); }
+
+.login-form .error-message { color: red; font-size: 0.9rem; margin-bottom: 10px; }
+
+.login-form button { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.login-form button:hover {background-color: #673ab7; transform: scale(1.05);  }
+/* ======================================
+   ACCESO DENEGADO
+   ====================================== */
+
+.denied-container { background-color: var(--coffee-bg); padding: 40px 50px; border-radius: 15px; width: 450px; margin: 80px auto;
+   text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+
+.denied-container h1 { color: var(--coffee-dark); margin-bottom: 15px; font-size: 26px; }
+
+.denied-container p { color: #5d4037;  font-size: 15px; }
+
+.warning { font-size: 45px; color: var(--warning); margin-bottom: 10px; }
+
+.btn { display: inline-block; margin-top: 20px; text-decoration: none; padding: 10px 20px; background-color: var(--coffee-dark); color: #fff;
+    border-radius: 6px; transition: background-color 0.3s ease; }
+
+.btn:hover { background-color: var(--coffee-darker); }
+
+.access-box { margin-top: 20px; text-align: left; font-size: 14px; background: #fff3d6; padding: 15px; border-radius: 8px; 
+  border: 1px solid #d7ccc8; }
+
+/* =============================
+   VISTA RPINCIPAL
+   ============================= */
+.productos-cards-container { padding: 20px; max-width: 1200px; margin: auto; }
+
+.productos-cards-header { display: flex; justify-content: space-between; align-items: center; }
+.productos-cards-header h2 { font-size: 28px; margin: 10px 0; color: #5e35b1; }
+
+.productos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-top: 25px; }
+
+.producto-card { background: #ffffff; border-radius: 12px; padding: 10px; box-shadow: 0 4px 10px rgba(94, 53, 177, 0.25); 
+  transition: all 0.3s ease-in-out; border-top: 4px solid #7e57c2; }
+
+.producto-card:hover { transform: translateY(-5px); box-shadow: 0 6px 16px rgba(94, 53, 177, 0.35); }
+
+.producto-card-img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; }
+
+.producto-card-title { font-size: 20px; font-weight: bold; margin: 5px 0; color: #5c6bc0; }
+
+.producto-card-desc { font-size: 14px; color: #555; margin-bottom: 10px; }
+
+.producto-card-price { font-size: 18px; font-weight: bold; color: #7e57c2; margin-bottom: 10px; }
+
+.producto-card-type { font-size: 13px; background: #ede7f6; padding: 5px 8px; display: inline-block; border-radius: 8px; margin-bottom: 12px;
+  color: #5c6bc0; font-weight: 600; }
+
+.producto-card-btn { width: 100%; padding: 10px; border: none; background: #5c6bc0; color: white; border-radius: 8px;
+  cursor: pointer; font-size: 15px; transition: 0.3s; }
+
+.producto-card-btn:hover { background: #5e35b1; }
+
+
+/* =============================
+   CLIENTES
+   ============================= */
+.clientes { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54; 
+    padding: 30px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); text-align: center; }
+
+.clientes-izq { flex: 3; display: flex; flex-direction: column; align-items: flex-start; }
+
+.clientes-izq h1, .clientes-izq h2 { color: #5c6bc0; font-style: italic; margin-bottom: 25px; 
+    text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.clientes-izq button { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.clientes-izq button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+.clientes table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.clientes th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.clientes td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.clientes tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.clientes tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.clientes tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+.clientes form { width: 80%; margin: 25px auto; background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15); text-align: left; }
+
+.clientes label { display: block; color: #3f51b5; font-weight: 600; margin-top: 10px; }
+
+.clientes input, 
+.clientes select { width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+.clientes input:focus, 
+.clientes select:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92,107,192,0.4); }
+
+.clientes button, .clientes a { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.clientes button:hover, .clientes a:hover { background-color: #673ab7; transform: scale(1.05); }
+
+.clientes-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; gap: 20px; }
+
+/* --- IZQUIERDA: Título y botón --- */
+.clientes-header-izq { display: flex; flex-direction: column; align-items: flex-start; gap: 10px;}
+
+.clientes-header-izq h2 {  color: #5c6bc0; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.3);  margin-bottom: 8px; }
+
+.clientes-header-izq button { background-color: #7e57c2; color: white; border: none; padding: 10px 18px; border-radius: 8px;
+  cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.3s, transform 0.2s; }
+
+.clientes-header-izq button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+/* --- DERECHA: Panel de búsqueda --- */
+.clientes-busqueda { display: flex; align-items: center; gap: 10px; background-color: #f8f9ff; border: 1px solid #dbeafe;
+  border-radius: 8px; padding: 10px 16px; box-shadow: 0 3px 8px rgba(92, 107, 192, 0.1); width: 40%; min-width: 280px; }
+
+.clientes-busqueda h2 { color: #5c6bc0; font-style: italic; font-size: 16px; text-align: center; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.3); }
+
+/* --- Input + botón alineados horizontalmente --- */
+.clientes-busqueda-linea { display: flex; align-items: center; gap: 8px; }
+
+.clientes-busqueda-linea input[type="text"] { flex: 1; padding: 6px 8px; border: 1px solid #b39ddb; border-radius: 6px;
+  font-size: 13px; color: #333; width: 50%; }
+
+.clientes-busqueda-linea input[type="text"]:focus { outline: none; border-color: #7e57c2; box-shadow: 0 0 3px rgba(126, 87, 194, 0.4); }
+
+.clientes-busqueda-linea button { background-color: #7e57c2; color: white; border: none; padding: 6px 10px; border-radius: 8px;
+  cursor: pointer; font-size: 13px; font-weight: 500; transition: background 0.3s, transform 0.2s; white-space: nowrap; }
+
+.clientes-busqueda-linea button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+
+/* =============================
+   PRODUCTOS
+   ============================= */
+.productos { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54;
+    padding: 30px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); text-align: center; }
+
+.productos h1, .productos h2 { color: #5c6bc0; font-style: italic; margin-bottom: 25px; 
+    text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.productos table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.productos th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.productos td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.productos tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.productos tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.productos tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+.productos form { width: 80%; margin: 25px auto; background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15); text-align: left; }
+
+.productos label { display: block; color: #3f51b5; font-weight: 600; margin-top: 10px; }
+
+.productos input, 
+.productos select { width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+.productos input:focus, 
+.productos select:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92,107,192,0.4); }
+
+.productos button, .productos a { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.productos button:hover, .productos a:hover { background-color: #673ab7; transform: scale(1.05); }
+
+.productos-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; gap: 20px; }
+
+/* --- IZQUIERDA: Título y botón --- */
+.productos-header-izq { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+.productos-header-izq h2 {  color: #5c6bc0; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.3);  margin-bottom: 8px; }
+
+.productos-header-izq button { background-color: #7e57c2; color: white; border: none; padding: 10px 18px; border-radius: 8px;
+  cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.3s, transform 0.2s; }
+
+.productos-header-izq button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+/* --- DERECHA: Panel de búsqueda --- */
+.productos-busqueda { display: flex; align-items: center; gap: 10px; background-color: #f8f9ff; border: 1px solid #dbeafe;
+  border-radius: 8px; padding: 10px 16px; box-shadow: 0 3px 8px rgba(92, 107, 192, 0.1); }
+
+.productos-busqueda h2 { color: #5c6bc0; font-style: italic; font-size: 16px; text-align: center; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.3); }
+
+/* --- Input + botón alineados horizontalmente --- */
+.productos-busqueda-linea { display: flex; align-items: center; gap: 8px; }
+
+.productos-busqueda-linea input[type="text"] { flex: 1; padding: 6px 8px; border: 1px solid #b39ddb; border-radius: 6px;
+  font-size: 13px; color: #333; width: 50%; }
+
+.productos-busqueda-linea input[type="text"]:focus { outline: none; border-color: #7e57c2; box-shadow: 0 0 5px rgba(126, 87, 194, 0.4); }
+
+.productos-busqueda-linea button { background-color: #7e57c2; color: white; border: none; padding: 6px 10px; border-radius: 8px;
+  cursor: pointer; font-size: 13px; font-weight: 500; transition: background 0.3s, transform 0.2s; white-space: nowrap; }
+
+.productos-busqueda-linea button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+
+/* =============================
+   TIPO
+   ============================= */
+.tipo { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54;
+    padding: 30px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); text-align: center; }
+
+.tipo h1, .tipo h2 { color: #5c6bc0; font-style: italic; margin-bottom: 25px; 
+    text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.tipo table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.tipo th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.tipo td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.tipo tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.tipo tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.tipo tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+.tipo form { width: 80%; margin: 25px auto; background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15); text-align: left; }
+
+.tipo label { display: block; color: #3f51b5; font-weight: 600; margin-top: 10px; }
+
+.tipo input, 
+.tipo select { width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+.tipo input:focus, 
+.tipo select:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92,107,192,0.4); }
+
+.tipo button, .tipo a { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.tipo button:hover, .tipo a:hover { background-color: #673ab7; transform: scale(1.05); }
+
+/* =============================
+   VENTAS
+   ============================= */
+.ventas-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; gap: 20px; }
+
+.ventas { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54;
+    padding: 30px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); text-align: center; }
+
+.ventas h1, .ventas h2 { color: #5c6bc0; font-style: italic; margin-bottom: 25px; 
+    text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.ventas table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.ventas th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.ventas td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.ventas tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.ventas tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.ventas tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+.ventas form { width: 80%; margin: 25px auto; background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15); text-align: left; }
+
+.ventas label { display: block; color: #3f51b5; font-weight: 600; margin-top: 10px; }
+
+.ventas input, 
+.ventas select { width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+.ventas input:focus, 
+.ventas select:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92,107,192,0.4); }
+
+.ventas button, .ventas a { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.ventas button:hover, .ventas a:hover { background-color: #673ab7; transform: scale(1.05); }
+
+/* --- IZQUIERDA: Título y botones --- */
+.ventas-header-izq { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+.ventas-header-izq h2 { color: #3949ab; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); margin-bottom: 8px; }
+
+.ventas-botones { display: flex; gap: 10px; }
+
+/* --- DERECHA: Panel de búsqueda --- */
+.ventas-busqueda { display: flex; align-items: center; gap: 10px; background-color: #f8f9ff; border: 1px solid #dbeafe;
+  border-radius: 8px; padding: 10px 16px; box-shadow: 0 3px 8px rgba(92, 107, 192, 0.1); }
+
+.ventas-busqueda h2 { color: #5c6bc0; font-style: italic; font-size: 16px; margin-right: 10px; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.ventas-busqueda input[type="date"] { padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 6px;
+  font-size: 14px; color: #333; }
+
+.ventas-busqueda input[type="date"]:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92, 107, 192, 0.3); }
+
+.ventas-busqueda button { background-color: #7e57c2; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer;
+  font-size: 14px; font-weight: 500; transition: background 0.3s, transform 0.2s;}
+
+.ventas-busqueda button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+
+/* =============================
+   EMPLEADOS
+   ============================= */
+.empleados { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54;
+    padding: 30px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); text-align: center; }
+
+.empleados h1, .empleados h2 { color: #5c6bc0; font-style: italic; margin-bottom: 25px; 
+    text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.empleados table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.empleados th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.empleados td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.empleados tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.empleados tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.empleados tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+.empleados form { width: 80%; margin: 25px auto; background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15); text-align: left; }
+
+.empleados label { display: block; color: #3f51b5; font-weight: 600; margin-top: 10px; }
+
+.empleados input, 
+.empleados select { width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+.empleados input:focus, 
+.empleados select:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92,107,192,0.4); }
+
+.empleados button, .empleados a { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.empleados button:hover, .empleados a:hover { background-color: #673ab7; transform: scale(1.05); }
+
+/*EMPLEADOS (Encabezado con Búsqueda) */
+.empleados-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap;
+  margin-bottom: 25px; gap: 20px; }
+
+/* --- IZQUIERDA: Título y botón --- */
+.empleados-header-izq { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+.empleados-header-izq h2 { color: #5c6bc0; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.3); margin-bottom: 8px; }
+
+.empleados-header-izq button { background-color: #7e57c2; color: white; border: none; padding: 10px 18px;
+  border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.3s, transform 0.2s; }
+
+.empleados-header-izq button:hover {  background-color: #673ab7;  transform: scale(1.05); }
+
+/* --- DERECHA: Panel de búsqueda --- */
+.empleados-busqueda { display: flex; align-items: center; gap: 10px; background-color: #f8f9ff; border: 1px solid #dbeafe; 
+  border-radius: 8px; padding: 10px 16px; box-shadow: 0 3px 8px rgba(92, 107, 192, 0.1); }
+
+.empleados-busqueda h2 { color: #5c6bc0; font-style: italic; font-size: 16px; text-align: center; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.3); }
+
+/* --- Input + botón alineados horizontalmente --- */
+.empleados-busqueda-linea { display: flex; align-items: center; gap: 8px; }
+
+.empleados-busqueda-linea input[type="text"] { flex: 1; padding: 6px 8px; border: 1px solid #b39ddb; border-radius: 6px; font-size: 13px;
+  color: #333; width: 70%; }
+
+.empleados-busqueda-linea input[type="text"]:focus { outline: none; border-color: #7e57c2; box-shadow: 0 0 5px rgba(126, 87, 194, 0.4); }
+
+.empleados-busqueda-linea button { background-color: #7e57c2; color: white; border: none; padding: 6px 10px; border-radius: 8px;
+  cursor: pointer; font-size: 13px; font-weight: 500; transition: background 0.3s, transform 0.2s; white-space: nowrap; }
+
+.empleados-busqueda-linea button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+
+/* =============================
+   MESAS
+   ============================= */
+.mesas { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54;
+    padding: 30px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); text-align: center; }
+
+.mesas h1, .mesas h2 { color: #5c6bc0; font-style: italic; margin-bottom: 25px; 
+    text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.mesas table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.mesas th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.mesas td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.mesas tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.mesas tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.mesas tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+.mesas form { width: 80%; margin: 25px auto; background: #ffffff; padding: 25px; border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15); text-align: left; }
+
+.mesas label { display: block; color: #3f51b5; font-weight: 600; margin-top: 10px; }
+
+.mesas input, 
+.mesas select { width: 100%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+.mesas input:focus, 
+.mesas select:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92,107,192,0.4); }
+
+.mesas button, .mesas a { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.mesas button:hover, .mesas a:hover { background-color: #673ab7; transform: scale(1.05); }
+
+
+/* =============================
+   RESERVAS
+   ============================= */
+.reservas-header-izq { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+.reservas-header-izq h2 { color: #3949ab; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); margin-bottom: 8px; }
+
+.reservas-header-izq button { background-color: #7e57c2; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 14px;
+  font-weight: 500; text-decoration: none; transition: background 0.3s, transform 0.2s; margin-right: 8px; }
+
+.reservas-header-izq button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+.reservas { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54;
+    padding: 30px; max-width: 900px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); text-align: center; }
+
+.reservas h2, .reservas h3 { color: #5c6bc0; text-align: center; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2);
+    margin-bottom: 25px; }
+
+.reservas .card { background-color: #ffffff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 10px rgba(92, 107, 192, 0.15);
+    margin-bottom: 25px; }
+
+.reservas .card p { margin: 10px 0; font-size: 16px; color: #333; }
+
+.reservas strong { color: #3f51b5; }
+
+.reservas table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+    box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.reservas th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.reservas td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.reservas tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.reservas tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.reservas tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+.reservas a { display: inline-block; background-color: #7986cb; color: #fff; text-decoration: none;
+    padding: 10px 15px; border-radius: 8px; font-size: 14px; margin-top: 15px; transition: all 0.3s ease; }
+
+.reservas a:hover { background-color: #5c6bc0; transform: scale(1.05); }
+
+.reservas button { background-color: #7e57c2; color: white; border: none; padding: 10px 16px;
+    border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none;
+    margin: 8px 5px; transition: background 0.3s, transform 0.2s; }
+
+.reservas button:hover { background-color: #673ab7; transform: scale(1.05);}
+
+.reservas-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; gap: 20px; }
+
+/* --- IZQUIERDA: Título y botones --- */
+.reservas-header-izq { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+
+.reservas-header-izq h2 { color: #3949ab; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); margin-bottom: 8px; }
+
+.reservas-botones { display: flex; gap: 10px; }
+
+.btn-nueva,
+.btn-volver { background-color: #7e57c2; color: white; border: none; padding: 10px 16px; border-radius: 8px;
+  cursor: pointer; font-size: 14px; font-weight: 500; transition: background 0.3s, transform 0.2s; }
+
+.btn-volver { background-color: #9fa8da; }
+
+.btn-nueva:hover,
+.btn-volver:hover { background-color: #673ab7; transform: scale(1.05);
+}
+
+
+.reservas input, 
+.reservas select { width: 25%; padding: 10px; margin-top: 6px; border-radius: 6px; border: 1px solid #b39ddb; }
+
+/* --- DERECHA: Panel de búsqueda --- */
+.reservas-busqueda { display: flex; align-items: center; gap: 10px; background-color: #f8f9ff; border: 1px solid #dbeafe;
+  border-radius: 8px; padding: 10px 16px; box-shadow: 0 3px 8px rgba(92, 107, 192, 0.1); }
+
+.reservas-busqueda h2 { color: #5c6bc0; font-style: italic; font-size: 16px; margin-right: 10px; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); }
+
+.reservas-busqueda input[type="date"] { padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 6px;
+  font-size: 14px; color: #333; }
+
+.reservas-busqueda input[type="date"]:focus { outline: none; border-color: #5c6bc0; box-shadow: 0 0 5px rgba(92, 107, 192, 0.3); }
+
+.reservas-busqueda button { background-color: #7e57c2; color: white; border: none; padding: 8px 14px; border-radius: 8px; cursor: pointer;
+  font-size: 14px; font-weight: 500; transition: background 0.3s, transform 0.2s;}
+
+.reservas-busqueda button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+
+
+/* =============================
+   USUARIOS
+   ============================= */
+
+/* === CONTENEDOR GENERAL === */
+.usuarios-container { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f4f3fb; color: #2c2c54; padding: 30px;
+  max-width: 950px; margin: 30px auto; border-radius: 16px; box-shadow: 0 4px 15px rgba(100, 80, 200, 0.2); }
+
+/* === HEADER === */
+.usuarios-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 25px; gap: 20px; }
+
+.usuarios-header h2 { color: #3949ab; font-style: italic; text-shadow: 1px 1px 2px rgba(92, 107, 192, 0.2); margin: 0; }
+
+.usuarios-header button,
+.usuarios-header a { background-color: #7e57c2; color: #fff; border: none; padding: 10px 18px;
+  border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; text-decoration: none; transition: background 0.3s, transform 0.2s; }
+
+.usuarios-header button:hover,
+.usuarios-header a:hover { background-color: #673ab7; transform: scale(1.05); }
+
+/* === TABLA === */
+.usuarios-table { width: 100%; border-collapse: collapse; border-radius: 12px; overflow: hidden; background-color: #ffffff;
+  box-shadow: 0 3px 10px rgba(92, 107, 192, 0.15); }
+
+.usuarios-table th { background-color: #5c6bc0; color: #fff; padding: 12px; text-align: left; font-weight: bold; }
+
+.usuarios-table td { padding: 10px; border-bottom: 1px solid #ddd; color: #444; }
+
+.usuarios-table tbody tr:nth-child(even) { background-color: #e8eaf6; }
+
+.usuarios-table tbody tr:nth-child(odd) { background-color: #f5f5fc; }
+
+.usuarios-table tbody tr:hover { background-color: #d1c4e9; transition: background-color 0.3s ease; }
+
+/* === BOTONES DE ACCIONES === */
+.btn-usuario { background-color: #7986cb; color: white; border: none; padding: 8px 14px;
+  border-radius: 8px; cursor: pointer; font-size: 13px; margin: 5px; transition: all 0.3s ease; }
+
+.btn-usuario:hover { background-color: #5c6bc0; transform: scale(1.05); }
+
+/* Botón de eliminar */
+.btn-eliminar { background-color: #d32f2f; }
+
+.btn-eliminar:hover { background-color: #b71c1c; }
+
+/* === TARJETA DETALLE === */
+.usuario-detalle-card { background-color: #ffffff; padding: 25px; border-radius: 14px; box-shadow: 0 2px 12px rgba(92, 107, 192, 0.2); max-width: 500px; margin: 25px auto; }
+
+.usuario-detalle-card p { margin: 12px 0; font-size: 16px; color: #333; }
+
+.usuario-detalle-card strong { color: #3f51b5; }
+
+/* === FORMULARIOS === */
+.usuario-form { background-color: #ffffff; padding: 25px; border-radius: 14px; box-shadow: 0 2px 12px rgba(92, 107, 192, 0.15); max-width: 600px; margin: 20px auto; }
+
+.usuario-form label { color: #3f51b5; font-weight: 600; }
+
+.usuario-form input,
+.usuario-form select { width: 100%; padding: 10px; margin-top: 6px; margin-bottom: 16px; border-radius: 8px; border: 1px solid #ccc; }
+
+.usuario-form button { background-color: #7e57c2; color: white; border: none; padding: 12px 18px; border-radius: 8px;
+  cursor: pointer; width: 100%; font-size: 15px; font-weight: 500; transition: background 0.3s, transform 0.2s; }
+
+.usuario-form button:hover { background-color: #673ab7; transform: scale(1.05); }
+
+
+
+/* --- Responsividad --- */
+@media (max-width: 768px) { .reservas-header { flex-direction: column; align-items: center; }
+
+  .reservas-busqueda { flex-direction: column; align-items: stretch; text-align: center; }
+
+  .reservas-busqueda h2 { margin-bottom: 10px; }
+
+  .reservas-busqueda button { width: 100%; }
+}
+
+
+/* === Responsivo === */
+@media (max-width: 768px) {
+  .clientes, .productos, .tipo, .ventas, .empleados, .mesas, .reservas { padding: 20px; }
+  
+  table { font-size: 14px; }
+
+  button, a { width: 100%; text-align: center; }
+}
