@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos y Tipos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+        .empty-message {
+            text-align: center;
+            margin-top: 10px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de Productos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="prod : ${listaProductos}">
+                <td th:text="${prod.idProducto}"></td>
+                <td th:text="${prod.nombreProducto}"></td>
+                <td th:text="${prod.descripcionProducto}"></td>
+                <td th:text="${prod.precioProducto}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:if="${#lists.isEmpty(listaProductos)}" class="empty-message">
+        No hay productos registrados.
+    </div>
+
+    <h2>Lista de Tipos</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tipo : ${listaTipos}">
+                <td th:text="${tipo.idTipo}"></td>
+                <td th:text="${tipo.nombreTipo}"></td>
+                <td th:text="${tipo.descripcionTipo}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div th:if="${#lists.isEmpty(listaTipos)}" class="empty-message">
+        No hay tipos registrados.
+    </div>
+
+</body>
+</html>

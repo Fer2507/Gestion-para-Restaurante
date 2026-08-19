@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center;">Lista de Productos</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="prod : ${listaProductos}">
+                <td th:text="${prod.idProducto}"></td>
+                <td th:text="${prod.nombreProducto}"></td>
+                <td th:text="${prod.descripcionProducto}"></td>
+                <td th:text="${prod.precioProducto}"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div th:if="${#lists.isEmpty(listaProductos)}" style="text-align:center; margin-top: 10px;">
+        <p>No hay productos registrados.</p>
+    </div>
+</body>
+</html>
